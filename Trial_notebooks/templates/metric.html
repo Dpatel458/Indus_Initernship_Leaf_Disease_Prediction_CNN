@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Model Metrics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/metric.css') }}">
+</head>
+<body>
+  <div class="page-container">
+
+    <!-- Navbar -->
+    <nav class="top-nav">
+      <div class="nav-container">
+        <div class="logo">🌿 Plant Disease Predictor</div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('visuals') }}">Visuals</a></li>
+          <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+          <li><a href="{{ url_for('metric') }}">Metrics</a></li>
+          <li><a href="{{ url_for('augmentation') }}">Augmentation</a></li>
+          <li><a href="{{ url_for('predict') }}">Predict</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Title -->
+    <header>
+      <h1 class="main-title">📀 <span class="highlight">Model Metrics</span></h1>
+      <p class="subtitle">Evaluate the performance of our prediction model</p>
+    </header>
+
+    <!-- Summary -->
+    <section class="metric-summary">
+      <h3>🔍 Performance Summary</h3>
+
+    </section>
+
+    <!-- Static Metric Plots -->
+    <section class="metric-summary2">
+      <img src="{{ url_for('static', filename='images/metric/Leaf_images.png') }}" alt="Distribution" class="metric2-img">
+      <img src="{{ url_for('static', filename='images/metric/Leaf images2.png') }}" alt="Metric Summary" class="metric2-img">
+    </section>
+
+
+    <br><br><br>
+
+
+    <!-- Dynamic Metric Section -->
+    <section class="metric-section">
+      <!-- Sidebar -->
+      <div class="metric-sidebar">
+        <strong>Models</strong>
+        <button onclick="loadPlots('augm', this)">Augmentation</button>
+        <button onclick="loadPlots('mobilenet', this)">MobileNet</button>
+        <button onclick="loadPlots('resnet_20', this)">ResNet 20%</button>
+        <button onclick="loadPlots('resnet_50', this)">ResNet 50%</button>
+        <button onclick="loadPlots('resnet_100', this)">ResNet 100%</button>
+      </div>
+
+      <!-- Plot Gallery -->
+      <div class="carousel-container" id="plotGallery">
+        <!-- Plots will load here -->
+      </div>
+    </section>
+
+    <!-- Confusion Matrix -->
+    <section class="confusion-matrix">
+      <h3>📊 Confusion Matrix</h3>
+      <img src="{{ url_for('static', filename='images/metric/Confusion_Metrics.png') }}" alt="Confusion Matrix" class="confusion-img">
+      <p class="matrix-caption">This matrix shows the model's performance across different classes.</p>
+    </section>
+
+  </div>  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© <span id="year"></span> Plant Prediction Project | Indus University</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const basePath = "{{ url_for('static', filename='images/metric/') }}";
+    const modelPlots = {
+      'augm': ['augm_10_loss.png', 'augm_10_acc.png'],
+      'mobilenet': ['mobilenet_10_loss.png', 'mobilenet_10_acc.png'],
+      'resnet_20': ['resnet_20_loss.png', 'resnet_20_acc.png', 'resnet_20_compare.png'],
+      'resnet_50': ['resnet_50_loss.png', 'resnet_50_acc.png', 'resnet_50_compare.png'],
+      'resnet_100': ['resnet_100_loss.png', 'resnet_100_acc.png', 'resnet_100_compare.png']
+    };
+
+    function loadPlots(modelKey, button) {
+      const plotGallery = document.getElementById("plotGallery");
+      plotGallery.innerHTML = "";
+
+      document.querySelectorAll(".metric-sidebar button").forEach(btn => btn.classList.remove("active"));
+      if (button) button.classList.add("active");
+
+      modelPlots[modelKey].forEach(filename => {
+        const img = document.createElement("img");
+        img.src = basePath + filename;
+        img.className = "metric-img";
+        img.alt = filename;
+        plotGallery.appendChild(img);
+      });
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    window.onload = () => loadPlots('augm', document.querySelector(".metric-sidebar button"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Our Project</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo">🌿 Plant Disease Predictor</div>
+      <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('visuals') }}">Visuals</a></li>
+          <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+          <li><a href="{{ url_for('metric') }}">Metrics</a></li>
+          <li><a href="{{ url_for('augmentation') }}">Augmentation</a></li>
+          <li><a href="{{ url_for('predict') }}">Predict</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-container">
+
+    <!-- Section 1: Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>About the Project</h1>
+        <p>This project is a comprehensive CNN-powered platform designed to accurately detect plant diseases through advanced image classification techniques. Leveraging the power of deep learning and transfer learning, the system is trained on a wide variety of plant images to recognize and diagnose diseases with high precision. The platform integrates custom image validation and a user-friendly web interface to ensure seamless interaction for both farmers and researchers. By providing fast, reliable, and accessible disease detection, this solution aims to support early intervention, reduce crop loss, and enhance agricultural productivity.</p>
+      </div>
+      <div class="hero-right">
+        <img src="{{ url_for('static', filename='images/about/l1.png') }}" alt="Project Image">
+      </div>
+    </section>
+
+    <!-- Section 2: Technology Logos -->
+    <section class="tech-row">
+      <img src="{{ url_for('static', filename='images/about/TF_logo.png') }}" alt="HTML">
+      <img src="{{ url_for('static', filename='images/about/js.jpg') }}" alt="CSS">
+      <img src="{{ url_for('static', filename='images/about/python_logo.jpg') }}" alt="Python">
+      <img src="{{ url_for('static', filename='images/about/flask.png') }}" alt="Flask">
+      <img src="{{ url_for('static', filename='images/about/pd.png') }}" alt="Pandas">
+      <img src="{{ url_for('static', filename='images/about/plt.png') }}" alt="Matplotlib">
+      <img src="{{ url_for('static', filename='images/about/sns.png') }}" alt="Seaborn">
+    </section>
+
+    <!-- Section 2: Problem statement -->
+    <section class="problem-statement">
+      <h2>Problem Statement</h2>
+      <p>Plant diseases pose a significant threat to global agriculture, leading to substantial crop losses and reduced food security. Traditional methods of disease identification rely heavily on manual inspection by experts, which is time-consuming, expensive, and often inaccessible to small-scale farmers. There is a critical need for an efficient, scalable, and accurate solution that can assist in the early detection and diagnosis of plant diseases. This project addresses the problem by developing an AI-based platform that leverages deep learning and image classification to automatically identify plant diseases from leaf images, enabling timely and informed decisions for farmers and researchers.</p>
+    </section>
+
+    <!-- Section 3: Workflow -->
+    <section class="workflow">
+      <h2>Project Workflow</h2>
+      <img src="{{ url_for('static', filename='images/about/workflow2.png') }}" alt="Workflow Diagram">
+    </section>
+
+    <!-- Section 4: Team Members -->
+    <section class="team">
+      <h2>Meet Our Team</h2>
+      <div class="team-members">
+        <div class="member">
+          <img src="{{ url_for('static', filename='images/about/member1.jpg') }}" alt="Member 1">
+          <p><b>Aran Vyas</b> <br> IU2241230236</p>
+          <p><i>Data Science</i></p>
+        </div>
+        <div class="member">
+          <img src="{{ url_for('static', filename='images/about/member2.jpg') }}" alt="Member 2">
+          <p><b>Dhruv Patel </b><br> IU2241230244</p>
+          <p><i>Model Development</i></p>
+        </div>
+        <div class="member">
+          <img src="{{ url_for('static', filename='images/about/member3.jpg') }}" alt="Member 3">
+          <p><b>Ishan Kalal</b> <br> IU2241230111</p>
+          <p><i>Web Designing & Model Deployment</i></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: team@plantdiseaseai.com</p>
+      <p>Email: support@plantdiseaseai.com</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© <span id="year"></span> Plant Prediction Project | Indus University</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
