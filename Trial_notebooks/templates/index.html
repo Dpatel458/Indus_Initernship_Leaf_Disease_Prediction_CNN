@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌿 Plant Disease Prediction - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo">🌿 Plant Disease Predictor</div>
+      <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('visuals') }}">Visuals</a></li>
+          <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+          <li><a href="{{ url_for('metric') }}">Metrics</a></li>
+          <li><a href="{{ url_for('augmentation') }}">Augmentation</a></li>          
+          <li><a href="{{ url_for('predict') }}">Predict</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Scroll Layout -->
+  <div class="scroll-container">
+    <!-- Left Sticky Image -->
+    <div class="image-panel">
+      <a id="image-link" href="{{ url_for('predict') }}">
+        <img id="main-image" src="{{ url_for('static', filename='images/predict.jpg') }}" alt="Section Image">
+      </a>
+    </div>
+
+    <!-- Right Scrollable Sections -->
+    <div class="text-sections">
+    <section class="text-block" data-image="visual.png" data-link="{{ url_for('visuals') }}">
+        <h2>📸 Healthy v/s Disease Visual Comparison</h2>
+        <h3>🔸 Purpose:</h3>
+            <p>
+                This section displays visual examples of healthy and diseased plant leaves to help users understand how different plant diseases appear. It serves as a visual guide for comparison and learning.
+            </p>
+
+            <h3>🔸 Key Features:</h3>
+            <ul>
+                <li><strong>Grid Layout:</strong> Organizes multiple images in a clean, scrollable or responsive grid.</li>
+                <li><strong>Side-by-Side Display:</strong> Shows healthy vs. diseased versions of the same plant type.</li>
+                <li><strong>Labels or Captions:</strong> Each image includes the plant name and disease type (if applicable).</li>
+                <li><strong>Optional Hover Effect:</strong> Show more details (e.g., disease name or zoom) on hover.</li>
+            </ul>
+
+            <h3>🔸 Design Suggestions:</h3>
+            <ul>
+                <li>Use a 2-column or 3-column grid depending on screen size.</li>
+                <li>Maintain uniform image size for aesthetic consistency.</li>
+                <li>Apply light shadow or border to separate image cards.</li>
+                <li>Add filtering or grouping by crop type or disease (optional).</li>
+            </ul>
+
+            <h3>🔸 User Benefit:</h3>
+            <ul>
+                <li>Helps users visually identify and distinguish between various plant diseases.</li>
+                <li>Educates users about the appearance of symptoms in healthy vs. affected plants.</li>
+                <li>Useful for farmers, researchers, and agricultural students.</li>
+            </ul>
+    </section>
+
+    <section class="text-block" data-image="analysis (1).png" data-link="{{ url_for('analysis') }}">
+        <h2>📊 Data Analysis</h2>
+          <h3>🔸 Purpose:</h3>
+            <p>
+                This section provides insights into the dataset used for training the plant disease prediction model. It includes analysis of image distribution, class imbalance, and data preprocessing methods to help users understand how the dataset influences model performance.
+            </p>
+
+            <h3>🔸 Key Features:</h3>
+            <ul>
+                <li><strong>Class Distribution Charts:</strong> Visualizes the number of images per plant-disease category using bar or pie charts.</li>
+                <li><strong>Imbalance Detection:</strong> Highlights any class imbalance that may affect prediction accuracy.</li>
+                <li><strong>Sample Visualization:</strong> Displays representative images from each class to understand the variability and patterns in the dataset.</li>
+                <li><strong>Data Split Overview:</strong> Shows how data is divided into training, validation, and test sets.</li>
+            </ul>
+
+            <h3>🔸 Design Suggestions:</h3>
+            <ul>
+                <li>Use Seaborn or Matplotlib to generate informative plots and embed them into the web page as images or interactive charts.</li>
+                <li>Group visuals and stats with explanatory text for clarity.</li>
+                <li>Use consistent color coding to represent different crop/disease types.</li>
+                <li>Keep charts responsive or scrollable on small screens.</li>
+            </ul>
+
+            <h3>🔸 User Benefit:</h3>
+            <ul>
+                <li>Helps users understand how well the model is trained and how balanced the data is.</li>
+                <li>Supports transparency and trust in the AI model by showcasing the dataset it learns from.</li>
+                <li>Assists developers and data scientists in identifying data limitations or areas for improvement.</li>
+            </ul>
+    </section>
+
+      <section class="text-block" data-image="metrics.png" data-link="{{ url_for('metric') }}">
+        <h2>📐 Model Metrics</h2>
+        <h3>🔸 Purpose:</h3>
+            <p>
+                This section presents key evaluation metrics that reflect the performance of the machine learning model used for predicting plant diseases. It helps users understand how accurate and reliable the model is across different classes.
+            </p>
+
+            <h3>🔸 Key Features:</h3>
+            <ul>
+                <li><strong>Accuracy:</strong> Overall percentage of correctly predicted labels.</li>
+                <li><strong>Precision:</strong> Measures the correctness of positive predictions (per class).</li>
+                <li><strong>Recall (Sensitivity):</strong> Measures how well the model identifies all relevant instances.</li>
+                <li><strong>F1-Score:</strong> Harmonic mean of precision and recall, providing a balance between them.</li>
+                <li><strong>Confusion Matrix:</strong> A visual grid showing true vs. predicted labels for all classes.</li>
+                <li><strong>Class-wise Analysis:</strong> Evaluates how the model performs on each specific crop or disease.</li>
+            </ul>
+
+            <h3>🔸 Design Suggestions:</h3>
+            <ul>
+                <li>Use colorful bar charts or tables to display metrics clearly.</li>
+                <li>Include a confusion matrix as an image or interactive heatmap.</li>
+                <li>Use tooltips or labels to explain each metric for non-technical users.</li>
+                <li>Group metrics by class or show macro/micro averages.</li>
+            </ul>
+
+            <h3>🔸 User Benefit:</h3>
+            <ul>
+                <li>Helps users evaluate the trustworthiness of predictions.</li>
+                <li>Allows comparison of model performance across different diseases or crops.</li>
+                <li>Informs decisions about retraining or improving the dataset.</li>
+                <li>Increases transparency and professionalism of the application.</li>
+            </ul>
+      </section>
+
+      <section class="text-block" data-image="augmentation.png" data-link="{{ url_for('augmentation') }}">
+      <h2>🧬 Data Augmentation</h2>
+
+      <h3>🔸 Purpose:</h3>
+      <p>
+        Data augmentation artificially increases the size and diversity of the dataset by applying random transformations to existing images. This helps make the model more robust and generalizable to unseen data.
+      </p>
+
+      <h3>🔸 Key Features:</h3>
+      <ul>
+        <li><strong>Flip & Rotate:</strong> Random horizontal flips and rotations simulate leaf variations.</li>
+        <li><strong>Zoom & Translate:</strong> Applies scaling and slight positional changes to simulate different perspectives.</li>
+        <li><strong>Preview:</strong> Users can view the original and augmented image side-by-side.</li>
+        <li><strong>Refresh Button:</strong> Re-generates a new random augmentation for experimentation.</li>
+      </ul>
+
+      <h3>🔸 Design Suggestions:</h3>
+      <ul>
+        <li>Display the original and augmented image in a card layout.</li>
+        <li>Add a "Regenerate" button to re-run the augmentation and update images.</li>
+        <li>Include the predicted class or label as a caption if applicable.</li>
+        <li>Use subtle shadow or border around each image for clarity.</li>
+      </ul>
+
+      <h3>🔸 User Benefit:</h3>
+      <ul>
+        <li>Improves model performance by reducing overfitting.</li>
+        <li>Helps users understand how augmentation enhances training data diversity.</li>
+        <li>Visually demonstrates the power of data preprocessing in machine learning.</li>
+      </ul>
+    </section>
+
+
+      <section class="text-block" data-image="pred.png" data-link="{{ url_for('predict') }}">
+        <h2>🔍 Predict Disease</h2>
+         <h3>🔸 Purpose:</h3>
+            <p>This is the core functional area of the website where users can upload an image of a plant leaf to get an instant disease prediction using a trained machine learning model.</p>
+
+            <h3>🔸 Key Features:</h3>
+            <ul>
+                <li><strong>File Upload Input:</strong> Allows the user to select or drag-and-drop a leaf image (JPEG/PNG).</li>
+                <li><strong>Submit Button:</strong> Triggers the backend (usually a Flask or Django API) to process the image and return a prediction.</li>
+                <li><strong>Prediction Display Area:</strong> Shows the result, such as:
+                <ul>
+                    <li>Detected Disease Name (e.g., "Tomato___Early_blight")</li>
+                    <li>Confidence/Accuracy Percentage (optional)</li>
+                    <li>Short Description or Treatment Tip (optional)</li>
+                </ul>
+                </li>
+                <li><strong>Loading Spinner or Status Indicator (optional):</strong> Indicates processing is in progress.</li>
+            </ul>
+
+            <h3>🔸 Design Suggestions:</h3>
+            <ul>
+                <li>Clean and simple form layout.</li>
+                <li>Use a card or box with shadow for focus.</li>
+                <li>Highlight the prediction result with bold typography and color (e.g., green for healthy, red/orange for disease).</li>
+                <li>Optionally show the uploaded image as a preview.</li>
+            </ul>
+
+            <h3>🔸 User Benefit:</h3>
+            <ul>
+                <li>Empowers farmers or researchers to quickly identify plant diseases using AI.</li>
+                <li>Enhances accessibility and ease-of-use for non-technical users.</li>
+            </ul>
+    </section>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© <span id="year"></span> Plant Prediction Project | Developed by</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const image = document.getElementById("main-image");
+    const imageLink = document.getElementById("image-link");
+    const sections = document.querySelectorAll(".text-block");
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const firstImage = sections[0].getAttribute("data-image");
+      image.src = `/static/images/${firstImage}`;
+    });
+
+    function switchImage(section) {
+      const newSrc = `/static/images/${section.getAttribute("data-image")}`;
+      const newLink = section.getAttribute("data-link");
+
+      if (!newSrc || !newLink || image.src.endsWith(newSrc)) return;
+
+      image.style.opacity = 0;
+
+      setTimeout(() => {
+        image.src = newSrc;
+        imageLink.href = newLink;
+        image.onload = () => {
+          image.style.opacity = 1;
+        };
+      }, 150);
+    }
+
+    sections.forEach(section => {
+      // Text fade/scale animation
+      gsap.fromTo(section,
+        { opacity: 0, y: 30, scale: 0.98 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top center",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+      // Image switch trigger
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        onEnter: () => switchImage(section),
+        onEnterBack: () => switchImage(section)
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

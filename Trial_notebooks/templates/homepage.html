@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌿 Plant Disease Prediction - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+  <nav class="top-nav">
+  <div class="nav-container">
+    <div class="logo">🌿 Plant Predictor</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        <li><a href="{{ url_for('visuals') }}">Visuals</a></li>
+        <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+        <li><a href="{{ url_for('metric') }}">Metrics</a></li>
+        <li><a href="{{ url_for('scroll_demo') }}">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="page-container">
+
+    <!-- Header -->
+    <header>
+      <h1 class="main-title">🌱 <span class="highlight">Plant Prediction System</span></h1>
+      <p class="subtitle">Explore tools to diagnose plant health, visualize disease patterns, and analyze performance.</p>
+    </header>
+
+    <!-- Zig-Zag Sections -->
+    <div class="nav-section">
+      <div class="nav-img">
+        <a href="{{ url_for('predict') }}">
+          <img src="{{ url_for('static', filename='images/predict.jpg') }}" alt="Prediction">
+        </a>
+      </div>
+      <div class="nav-text">
+        <h2>🔍 Predict Disease</h2>
+        <p>Upload a leaf image and let the AI detect the crop and any disease present. Supports real-time image predictions using our trained deep learning model.</p>
+      </div>
+    </div>
+
+    <div class="nav-section reverse">
+      <div class="nav-img">
+        <a href="{{ url_for('visuals') }}">
+          <img src="{{ url_for('static', filename='images/visuals.jpg') }}" alt="Visual Comparison">
+        </a>
+      </div>
+      <div class="nav-text">
+        <h2>📸 Visual Comparison</h2>
+        <p>Compare healthy and diseased leaf images side-by-side for different crops. Understand the visual symptoms and disease types.</p>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-img">
+        <a href="{{ url_for('analysis') }}">
+          <img src="{{ url_for('static', filename='images/analysis.jpg') }}" alt="Data Analysis">
+        </a>
+      </div>
+      <div class="nav-text">
+        <h2>📊 Data Analysis</h2>
+        <p>Get insights into the dataset used to train the model. View class distribution, feature patterns, and exploratory plots to understand the data better.</p>
+      </div>
+    </div>
+
+    <div class="nav-section reverse">
+      <div class="nav-img">
+        <a href="{{ url_for('metric') }}">
+          <img src="{{ url_for('static', filename='images/metrics.jpg') }}" alt="Model Metrics">
+        </a>
+      </div>
+      <div class="nav-text">
+        <h2>📐 Model Metrics</h2>
+        <p>Check model performance metrics like accuracy, precision, recall, and F1-score. Visualize confusion matrix and training/validation curves.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© <span id="year"></span> Plant Prediction Project | Developed by</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
