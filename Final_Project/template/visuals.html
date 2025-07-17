@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📸 Visual Grid</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/visual.css') }}">
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo">🌿 Plant Disease Predictor</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('visuals') }}">Visuals</a></li>
+        <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+        <li><a href="{{ url_for('metric') }}">Metrics</a></li>
+        <li><a href="{{ url_for('augmentation') }}">Augmentation</a></li>          
+        <li><a href="{{ url_for('predict') }}">Predict</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="page-container">
+
+    <header>
+      <h1 class="main-title"><span class="highlight">Comparison Grid</span></h1>
+      <p class="subtitle"> Healthy vs Diseased Images</p>
+    </header>
+
+    <div class="grid-container">
+
+      <div class="grid-cell">
+        <p>Healthy Tomato</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Tomato</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Bacterial_spot.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Early_blight.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Late_blight.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Septoria_leaf_spot.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Spider_mites Two-spotted_spider_mite.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Target_Spot.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Tomato_mosaic_virus.JPG') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Tomato_Yellow_Leaf_Curl_Virus.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Tomato___Leaf_Mold.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Potato</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Potato___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Potato</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Potato___Late_blight.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Potato___Early_blight.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Corn</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Corn_(maize)___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell"> 
+        <p>Diseased Corn</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Corn_(maize)___Common_rust_.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Corn_(maize)___Northern_Leaf_Blight.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Apple</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Apple___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Apple</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Apple___Apple_scab.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Apple___Black_rot.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Apple___Cedar_apple_rust.jpg') }}">
+        </div>
+      </div>
+    
+      <div class="grid-cell">
+        <p>Healthy Grape</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Grape___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Grape</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Grape___Black_rot.jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Grape___Esca_(Black_Measles).jpg') }}">
+          <img src="{{ url_for('static', filename='images/visual/Grape___Leaf_blight_(Isariopsis_Leaf_Spot).jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Bell Pepper</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Pepper,_bell___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Bell Pepper</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Pepper,_bell___Bacterial_spot.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Strawberry</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Strawberry___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Strawberry</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Strawberry___Leaf_scorch.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Peach</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Peach___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Peach</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Peach___Bacterial_spot.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Healthy Cherry</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Cherry_(including_sour)___healthy.jpg') }}">
+        </div>
+      </div>
+
+      <div class="grid-cell">
+        <p>Diseased Cherry</p>
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/visual/Cherry_(including_sour)___Powdery_mildew.jpg') }}">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© <span id="year"></span> Plant Prediction Project | Indus University</p>
+      </div>
+    </footer>
+
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

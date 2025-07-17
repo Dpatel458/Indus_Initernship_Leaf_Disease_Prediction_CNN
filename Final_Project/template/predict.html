@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌿 Plant Disease Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+</head>
+<body>
+  <div class="page-container">
+    <nav class="top-nav">
+      <div class="nav-container">
+        <div class="logo">🌿 Plant Disease Predictor</div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('visuals') }}">Visuals</a></li>
+          <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
+          <li><a href="{{ url_for('metric') }}">Metrics</a></li>
+          <li><a href="{{ url_for('augmentation') }}">Augmentation</a></li>
+          <li><a href="{{ url_for('predict') }}">Predict</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header>
+      <h1 class="main-title">🌿 <span class="highlight">Plant Disease Prediction</span></h1>
+      <p class="subtitle">Upload a plant leaf image to predict its disease</p>
+    </header>
+
+    <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data" onsubmit="showVideo()">
+      <input type="file" name="image" accept="image/*" required>
+      <br><br>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if image_url %}
+    <div class="results-wrapper">
+      <div class="result">
+        <h3>📸 Uploaded Image:</h3>
+        <img src="{{ url_for('static', filename='uploads/uploaded_image.png') }}" alt="Uploaded Image" class="uploaded-img">
+        <h3>🧪 Prediction:</h3>
+        <p class="prediction">{{ prediction }} (Confidence: {{ confidence }})</p>
+      </div>
+
+      <div class="result">
+        <h3>📸 Uploaded Image:</h3>
+        <img src="{{ url_for('static', filename='uploads/uploaded_image.png') }}" alt="Uploaded Image" class="uploaded-img">
+        <h3>🧪 Prediction2:</h3>
+        <p class="prediction2">{{ prediction2 }} (Confidence2: {{ confidence2 }})</p>
+      </div>
+    </div>
+    {% elif error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <div id="loading-overlay">
+      <video id="loading-video" src="{{ url_for('static', filename='bg1(1).mp4') }}" autoplay muted></video>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© <span id="year"></span> Plant Prediction Project | Indus University</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+    const overlay = document.getElementById("loading-overlay");
+    const video = document.getElementById("loading-video");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      overlay.style.display = "flex";
+      video.play();
+      video.onended = () => {
+        overlay.style.display = "none";
+        form.submit();
+      };
+    });
+
+    window.onload = () => {
+      document.getElementById("year").textContent = new Date().getFullYear();
+    };
+  </script>
+</body>
+</html>
